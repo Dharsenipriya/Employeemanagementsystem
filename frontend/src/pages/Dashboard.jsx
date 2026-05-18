@@ -103,17 +103,16 @@ const Dashboard = ({ user }) => {
       borderWidth: 2
     }]
   }
-
   return (
     <div className="container">
       {error && <div className="alert alert-error">{error}</div>}
 
       <div className="dashboard-header">
-        <h2>📊 Dashboard</h2>
+        <h2> Dashboard</h2>
         <div className="search-add-bar">
           <input
             type="text"
-            placeholder="🔍 Search employees..."
+            placeholder=" Search employees..."
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
           />
@@ -122,8 +121,6 @@ const Dashboard = ({ user }) => {
           </button>
         </div>
       </div>
-
-      {/* Stats Cards */}
       <div className="stats">
         <div className="stat-card">
           <h3>Total Employees</h3>
@@ -143,18 +140,14 @@ const Dashboard = ({ user }) => {
           </div>
         </div>
       </div>
-
-      {/* Chart */}
       {employees.length > 0 && deptCounts && Object.keys(deptCounts).length > 0 && (
         <div className="chart-container">
-          <h3>📈 Employee Distribution by Department</h3>
+          <h3> Employee Distribution by Department</h3>
           <div style={{ maxWidth: '400px', margin: '0 auto' }}>
             <Pie data={chartData} options={{ responsive: true }} />
           </div>
         </div>
       )}
-
-      {/* Employee Form Modal */}
       {showForm && (
         <div className="modal open">
           <div className="modal-content">
@@ -167,8 +160,6 @@ const Dashboard = ({ user }) => {
           </div>
         </div>
       )}
-
-      {/* Employee List */}
       {loading ? (
         <div className="loading">Loading employees...</div>
       ) : employees.length === 0 ? (
